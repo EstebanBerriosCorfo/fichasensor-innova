@@ -1,0 +1,56 @@
+# Entornos virtuales
+venv/
+.env/
+.envrc
+.venv/
+.ficha/
+ficha/
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos temporales y de cache
+*.log
+*.tmp
+*.swp
+*.bak
+*.DS_Store
+Thumbs.db
+
+# Salidas generadas y documentos Word/PDF
+/output/
+*.docx
+*.pdf
+
+# Archivos de usuario/jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Plantillas y configuraciones de Word/Excel (si son sensibles)
+src/templates/*.docx
+src/assets/*.png
+src/assets/*.jpg
+
+# Archivos de Excel de trabajo
+*.xlsx
+
+# Configuración de IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Mac/OSX files
+.DS_Store
+
+# Windows files
+desktop.ini
+
+# Archivos creados por Pillow o imágenes temporales
+*.ppm
+*.png
+
+# Otros archivos de ejemplo
+example/
+test/
+tests/
+sandbox/
