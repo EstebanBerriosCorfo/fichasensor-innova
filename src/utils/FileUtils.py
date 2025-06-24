@@ -1,20 +1,32 @@
 import os
+import sys
 
 class FileUtils:
     @staticmethod
+    def get_base_dir():
+        """
+        Devuelve la ruta base correcta tanto en desarrollo como en ejecutable.
+        """
+        # Si ejecutado como EXE de PyInstaller
+        if hasattr(sys, '_MEIPASS'):
+            return sys._MEIPASS
+        # En desarrollo: .../src/ (ajusta si tu estructura cambia)
+        return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    @staticmethod
     def get_downloads_folder():
+        """ Devuelve la ruta a la carpeta de Descargas del usuario.
         """
-        Función que obtiene la ruta de la carpeta de descargas del usuario actual.
-        Si la carpeta de descargas no existe, se crea.
-        """
+        # En Windows, la carpeta de Descargas suele estar en C:\Users\<Usuario>\Downloads
+        # En Linux y macOS, suele estar en /home/<Usuario>/Downloads o /Users/<Usuario>/Downloads
         return os.path.join(os.path.expanduser('~'), 'Downloads')
 
     @staticmethod
     def get_fichasensor_excel_path():
+        """ Devuelve la ruta al archivo Excel de Ficha Sensor.
         """
-        Retorna la ruta completa del archivo FichaSensor.xlsx ubicado en la carpeta OneDrive del usuario actual.
-        Si el archivo no existe, lanza una excepción FileNotFoundError.
-        """
+        # Asumiendo que el archivo está en la carpeta de OneDrive del usuario
+        # Ajusta la ruta según sea necesario
         user_folder = os.path.expanduser('~')
         excel_path = os.path.join(
             user_folder,
@@ -26,41 +38,36 @@ class FileUtils:
             return excel_path
         else:
             raise FileNotFoundError(f"No se encontró el archivo: {excel_path}")
-        
+
     @staticmethod
     def get_template_path(template_name):
-        """ Retorna la ruta absoluta de un archivo de plantilla específico.
-        :param template_name: Nombre del archivo de plantilla (ej. 'template.html').
-        :return: Ruta absoluta del archivo de plantilla.
+        """ Devuelve la ruta al archivo de plantilla especificado.
         """
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # .../src/
-        return os.path.join(base_dir, "templates", template_name)
+        # Usa get_base_dir()
+        return os.path.join(FileUtils.get_base_dir(), "templates", template_name)
 
     @staticmethod
     def get_assets_folder():
+        """ Devuelve la ruta a la carpeta de assets.
         """
-        Retorna la ruta absoluta de la carpeta assets (src/assets).
-        """
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # .../src/
-        return os.path.join(base_dir, "assets")
+        # Usa get_base_dir() para construir la ruta a la carpeta de assets
+        # Asumiendo que la carpeta de assets está en la raíz del proyecto
+        return os.path.join(FileUtils.get_base_dir(), "assets")
 
     @staticmethod
     def get_logo_corfo_path():
-        """
-        Retorna la ruta absoluta de logoCorfo.png.
+        """ Devuelve la ruta al logo de Corfo.
         """
         return os.path.join(FileUtils.get_assets_folder(), "logoCorfo.png")
 
     @staticmethod
     def get_icon_corfo_path():
-        """
-        Retorna la ruta absoluta de Corfo.jpg (ícono app).
+        """ Devuelve la ruta al icono de Corfo.
         """
         return os.path.join(FileUtils.get_assets_folder(), "Corfo.jpg")
     
     @staticmethod
     def get_ico_corfo_path():
-        """
-        Retorna la ruta absoluta de corfo.ico (ícono de la aplicación).
+        """ Devuelve la ruta al icono de Corfo.
         """
         return os.path.join(FileUtils.get_assets_folder(), "corfo.ico")
