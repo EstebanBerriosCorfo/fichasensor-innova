@@ -1,5 +1,6 @@
 import os
 import sys
+from tkinter import filedialog, messagebox
 
 class FileUtils:
     @staticmethod
@@ -23,21 +24,31 @@ class FileUtils:
 
     @staticmethod
     def get_fichasensor_excel_path():
-        """ Devuelve la ruta al archivo Excel de Ficha Sensor.
         """
-        # Asumiendo que el archivo está en la carpeta de OneDrive del usuario
-        # Ajusta la ruta según sea necesario
+        Devuelve la ruta al archivo Excel institucional.
+        Si no se encuentra, permite al usuario seleccionarlo manualmente.
+        """
         user_folder = os.path.expanduser('~')
-        excel_path = os.path.join(
+        ruta_fija = os.path.join(
             user_folder,
             'OneDrive - corfo.cl',
             'Documentos - SUBDIRECCIÓN DE MEJORA CONTINUA',
             'Ficha Sensor.xlsx'
         )
-        if os.path.exists(excel_path):
-            return excel_path
+        if os.path.exists(ruta_fija):
+            return ruta_fija
         else:
-            raise FileNotFoundError(f"No se encontró el archivo: {excel_path}")
+            respuesta = messagebox.askyesno("Archivo no encontrado",
+                f"No se encontró el archivo Ficha Sensor.xlsx en:\n\n{ruta_fija}\n\n¿Deseas buscarlo manualmente?")
+            if respuesta:
+                path = filedialog.askopenfilename(
+                    title="Seleccionar archivo Ficha Sensor",
+                    filetypes=[("Excel Files", "*.xlsx *.xls")]
+                )
+                if path:
+                    return path
+            raise FileNotFoundError("No se pudo localizar el archivo Ficha Sensor.xlsx")
+
 
     @staticmethod
     def get_template_path(template_name):

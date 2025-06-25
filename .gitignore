@@ -22,6 +22,9 @@ Thumbs.db
 *.docx
 *.pdf
 
+# Carpeta build
+/build/
+
 # Archivos de usuario/jupyter
 .ipynb_checkpoints/
 *.ipynb
