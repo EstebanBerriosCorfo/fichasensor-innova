@@ -12,6 +12,7 @@ Imágenes: Pillow (PIL)
 
 ### Estructura de carpetas:
 
+```text
 ficha_sensor_project/
 ├── src/
 │   ├── api/              # Cliente SOAP y servicios externos
@@ -24,6 +25,8 @@ ficha_sensor_project/
 │   └── utils/            # Utilidades varias (fechas, archivos)
 ├── main.py               # Punto de entrada
 └── README.md
+```
+
 ### 🖥️ Vista principal
 La interfaz es moderna y minimalista, basada en los lineamientos visuales de CORFO:
 
