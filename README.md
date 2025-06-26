@@ -1,6 +1,22 @@
 # Gestión de Fichas Sensor Innova Chile
 Aplicación de escritorio para la gestión, búsqueda y generación de documentos asociados a reuniones y visitas técnicas de proyectos Innova Chile (CORFO).
 
+### 🖼️ Vista de la aplicación
+
+A continuación se muestran pantallas del sistema en funcionamiento:
+
+#### 🔍 Pantalla principal
+
+![Pantalla principal](images/image01.png)
+
+#### 📑 Carga de un proyecto
+
+![Ejemplo de búsqueda](images/image02.png)
+
+#### 📑 Selección de ficha
+
+![Seleccionar ficha](images/image03.png)
+
 ### 🚀 Arquitectura
 Lenguaje: Python 3.11+
 
