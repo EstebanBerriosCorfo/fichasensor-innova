@@ -50,7 +50,6 @@ desktop.ini
 
 # Archivos creados por Pillow o imágenes temporales
 *.ppm
-*.png
 
 # Otros archivos de ejemplo
 example/
