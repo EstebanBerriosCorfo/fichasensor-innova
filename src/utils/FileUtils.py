@@ -34,7 +34,7 @@ class FileUtils:
             'OneDrive - corfo.cl',
             'InnovaChile - General',
             'Base Ficha Sensor',
-            'Ficha Sensor.xlsx'
+            'Ficha Sensor1.xlsx'
         )
         if os.path.exists(ruta_fija):
             return ruta_fija
